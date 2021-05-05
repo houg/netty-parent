@@ -28,6 +28,7 @@
 		<org.springframework.boot.version>2.3.10.RELEASE</org.springframework.boot.version>
 		<com.alibaba.nacos.version>2.0.0</com.alibaba.nacos.version>
 		<zkclient.version>0.10</zkclient.version>
+		<alibaba.cloud.version>2.1.2.RELEASE</alibaba.cloud.version>
 	</properties>
 
 
@@ -66,9 +67,11 @@
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
-				<groupId>com.alibaba.nacos</groupId>
-				<artifactId>nacos-client</artifactId>
-				<version>${com.alibaba.nacos.version}</version>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${alibaba.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.101tec</groupId>
