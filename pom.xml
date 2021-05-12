@@ -42,7 +42,9 @@
 		<apache.commons-lang3.version>3.3.2</apache.commons-lang3.version>
 		<apache.commons-io.version>2.5</apache.commons-io.version>
 		<apache.commons.beanutils>1.9.3</apache.commons.beanutils>
-        <netty-codec-mqtt.version>4.1.60.Final</netty-codec-mqtt.version>
+		<netty-codec-mqtt.version>4.1.60.Final</netty-codec-mqtt.version>
+		<fastjson.version>1.2.56</fastjson.version>
+		<hessian.version>4.0.60</hessian.version>
 	</properties>
 
 
@@ -108,6 +110,28 @@
 				<artifactId>netty-codec-mqtt</artifactId>
 				<version>${netty-codec-mqtt.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.caucho</groupId>
+				<artifactId>hessian</artifactId>
+				<version>${hessian.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.protostuff</groupId>
+				<artifactId>protostuff-core</artifactId>
+				<version>1.6.0</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.protostuff</groupId>
+				<artifactId>protostuff-runtime</artifactId>
+				<version>1.6.0</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 	<build>
