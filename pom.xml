@@ -9,26 +9,40 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>him</name>
 	<description>netty 即时通讯</description>
-	
+
 	<modules>
-	     <module>netty-server</module>
-	     <module>netty-core</module>
-	     <module>netty-route-common</module>
-	     <module>netty-route</module>
-	     <module>netty-registry-common</module>
-	     <module>netty-registry</module>
-	     <module>netty-client</module>
+		<module>netty-iot-server</module>
+		<module>netty-iot-core</module>
+		<module>netty-iot-common</module>
+		<module>netty-iot-client</module>
 	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<maven-compiler-plugin.version>3.6.2</maven-compiler-plugin.version>
+		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+
 		<netty.version>4.1.42.Final</netty.version>
 		<com.google.protobuf.version>3.7.1</com.google.protobuf.version>
-		<org.springframework.cloud.version>Hoxton.SR8</org.springframework.cloud.version>
-		<org.springframework.boot.version>2.3.10.RELEASE</org.springframework.boot.version>
+		<org.springframework.cloud.version>Hoxton.SR5</org.springframework.cloud.version>
+		<org.springframework.boot.version>2.3.5.RELEASE</org.springframework.boot.version>
 		<com.alibaba.nacos.version>2.0.0</com.alibaba.nacos.version>
 		<zkclient.version>0.10</zkclient.version>
 		<alibaba.cloud.version>2.1.2.RELEASE</alibaba.cloud.version>
+		<lombok.version>1.18.10</lombok.version>
+		<netty-all.version>4.1.63.Final</netty-all.version>
+
+		<apache.commons-lang3.version>3.3.2</apache.commons-lang3.version>
+		<apache.commons-io.version>2.5</apache.commons-io.version>
+		<apache.commons.beanutils>1.9.3</apache.commons.beanutils>
+        <netty-codec-mqtt.version>4.1.60.Final</netty-codec-mqtt.version>
 	</properties>
 
 
@@ -78,7 +92,50 @@
 				<artifactId>zkclient</artifactId>
 				<version>${zkclient.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>${netty-all.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-codec-mqtt</artifactId>
+				<version>${netty-codec-mqtt.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${maven.compiler.encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<!--打包跳过测试 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
