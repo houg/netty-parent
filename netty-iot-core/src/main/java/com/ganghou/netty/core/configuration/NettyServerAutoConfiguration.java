@@ -7,9 +7,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.ganghou.netty.common.codec.NettyCodecFactory;
 import com.ganghou.netty.common.model.URL;
-import com.ganghou.netty.core.codec.NettyCodecFactory;
-import com.ganghou.netty.core.codec.NettyStringCodecFactory;
+import com.ganghou.netty.core.codec.NettyDefaultCodecFactory;
 import com.ganghou.netty.core.server.NettyServer;
 
 @Configuration
@@ -32,7 +32,9 @@ public class NettyServerAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean
 	public NettyCodecFactory initDefaultNettyCodecFactory() {
-		return new NettyStringCodecFactory();
+		return new NettyDefaultCodecFactory();
+		
+				
 	}
 
 }

@@ -2,9 +2,9 @@ package com.ganghou.netty.core.server;
 
 import java.net.InetSocketAddress;
 
+import com.ganghou.netty.common.codec.NettyCodecFactory;
 import com.ganghou.netty.common.model.URL;
-import com.ganghou.netty.core.codec.NettyCodecFactory;
-import com.ganghou.netty.core.codec.NettyStringCodecFactory;
+import com.ganghou.netty.core.codec.NettyDefaultCodecFactory;
 import com.ganghou.netty.core.handler.NettyServerHandler;
 import com.ganghou.netty.core.store.ChannelStore;
 

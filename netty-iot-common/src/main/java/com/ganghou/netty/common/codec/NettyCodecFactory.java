@@ -1,4 +1,4 @@
-package com.ganghou.netty.core.codec;
+package com.ganghou.netty.common.codec;
 
 import com.ganghou.netty.common.constants.ProtocolType;
 
